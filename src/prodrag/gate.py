@@ -11,5 +11,6 @@ def check(body):
     if image.endswith(":latest") or image == "latest":
         failed.append("image_tag_latest")
 
-    if not body.get("citation"): failed.append("missing_citation")\n    if not body.get("image_digest"): failed.append("unpinned_image")
+    if not body.get("citation"): failed.append("missing_citation")
+    if not body.get("image_digest"): failed.append("unpinned_image")
     return {"passed": not failed, "failed": failed, "applied": False}
